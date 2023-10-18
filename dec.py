@@ -2,10 +2,10 @@ from random import sample, seed
 
 CHUNK_SIZE = 8
 
-with open("./seed.txt") as f:
+with open("./seed") as f:
     seed(f.readline())
 
-with open("./charlie.txt", "br") as f:
+with open("./charlie", "br") as f:
     buffer = f.read()
 
 charlie = ""
@@ -26,5 +26,5 @@ for chunk in chunks:
     bob += "".join(tmp)
 
 line = int(bob, 2).to_bytes(len(bob) // 8, byteorder="big").decode("utf-8")
-with open("./bob.txt", "w") as f:
+with open("./bob", "w") as f:
     f.write(line)

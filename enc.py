@@ -2,10 +2,10 @@ from random import sample, seed
 
 CHUNK_SIZE = 8
 
-with open("./seed.txt") as f:
+with open("./seed") as f:
     seed(f.readline())
 
-with open("./alice.txt") as f:
+with open("./alice") as f:
     buffer = f.readline()
 
 alice = ""
@@ -24,5 +24,5 @@ for chunk in chunks:
     charlie += "".join([chunk[i] for i in oneline])
 
 buffer = int(charlie, 2).to_bytes(len(charlie) // 8, byteorder="big")
-with open("./charlie.txt", "bw") as f:
+with open("./charlie", "bw") as f:
     f.write(buffer)

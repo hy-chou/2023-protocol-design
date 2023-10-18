@@ -1,13 +1,13 @@
-all: charlie.txt bob.txt
-	diff alice.txt bob.txt && echo "OK" || echo "KO"
+all: charlie bob
+	diff alice bob && echo "OK" || echo "KO"
 
-charlie.txt:
+charlie:
 	python3 enc.py
-bob.txt:
+bob:
 	python3 dec.py
 
 hello:
 	echo "Hello, World"
 
 clean:
-	rm bob.txt charlie.txt
+	rm bob charlie
