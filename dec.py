@@ -25,6 +25,6 @@ for chunk in chunks:
         tmp[p] = chunk[i]  # reverse permutation
     bob += "".join(tmp)
 
-line = int(bob, 2).to_bytes(len(bob) // 8, byteorder="big").decode("utf-8")
-with open("./bob", "w") as f:
+line = int(bob, 2).to_bytes(len(bob) // 8, byteorder="big")
+with open("./bob", "bw") as f:
     f.write(line)

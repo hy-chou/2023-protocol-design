@@ -5,13 +5,12 @@ CHUNK_SIZE = 8
 with open("./seed") as f:
     seed(f.readline())
 
-with open("./alice") as f:
-    buffer = f.readline()
+with open("./alice", "br") as f:
+    buffer = f.read()
 
 alice = ""
-for char in buffer:
-    for byte in char.encode("utf-8"):
-        alice += "".join(f"{byte:08b}")
+for byte in buffer:
+    alice += "".join(f"{byte:08b}")
 
 chunks = [
     alice[i * CHUNK_SIZE : (i + 1) * CHUNK_SIZE]
