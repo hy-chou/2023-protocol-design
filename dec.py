@@ -22,7 +22,7 @@ for chunk in chunks:
     oneline = sample(range(CHUNK_SIZE), k=CHUNK_SIZE)
     tmp = [-1 for _ in range(len(oneline))]
     for i, p in enumerate(oneline):
-        tmp[p] = chunk[i]
+        tmp[p] = chunk[i]  # reverse permutation
     bob += "".join(tmp)
 
 line = int(bob, 2).to_bytes(len(bob) // 8, byteorder="big").decode("utf-8")

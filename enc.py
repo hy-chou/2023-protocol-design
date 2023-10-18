@@ -21,7 +21,7 @@ chunks = [
 charlie = ""
 for chunk in chunks:
     oneline = sample(range(CHUNK_SIZE), k=CHUNK_SIZE)
-    charlie += "".join([chunk[i] for i in oneline])
+    charlie += "".join([chunk[i] for i in oneline])  # permutation
 
 buffer = int(charlie, 2).to_bytes(len(charlie) // 8, byteorder="big")
 with open("./charlie", "bw") as f:
