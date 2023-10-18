@@ -1,7 +1,5 @@
 from random import sample, seed
 
-from perm import perm
-
 CHUNK_SIZE = 8
 
 with open("./seed.txt") as f:
@@ -23,7 +21,7 @@ chunks = [
 charlie = ""
 for chunk in chunks:
     oneline = sample(range(CHUNK_SIZE), k=CHUNK_SIZE)
-    charlie += "".join(perm(chunk, oneline))
+    charlie += "".join([chunk[i] for i in oneline])
 
 buffer = int(charlie, 2).to_bytes(len(charlie) // 8, byteorder="big")
 with open("./charlie.txt", "bw") as f:

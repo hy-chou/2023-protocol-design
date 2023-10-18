@@ -1,7 +1,5 @@
 from random import sample, seed
 
-from perm import inve
-
 CHUNK_SIZE = 8
 
 with open("./seed.txt") as f:
@@ -22,7 +20,10 @@ chunks = [
 bob = ""
 for chunk in chunks:
     oneline = sample(range(CHUNK_SIZE), k=CHUNK_SIZE)
-    bob += "".join(inve(chunk, oneline))
+    tmp = [-1 for _ in range(len(oneline))]
+    for i, p in enumerate(oneline):
+        tmp[p] = chunk[i]
+    bob += "".join(tmp)
 
 line = int(bob, 2).to_bytes(len(bob) // 8, byteorder="big").decode("utf-8")
 with open("./bob.txt", "w") as f:
