@@ -1,4 +1,4 @@
-all: charlie bob
+all: seed charlie bob
 	diff alice bob && echo "OK" || echo "KO"
 
 charlie:
@@ -6,8 +6,11 @@ charlie:
 bob:
 	python3 dec.py
 
+seed:
+	python3 genseed.py
+
 hello:
 	echo "Hello, World"
 
 clean:
-	rm bob charlie
+	rm bob charlie seed
